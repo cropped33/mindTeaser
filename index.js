@@ -2,43 +2,48 @@ function generator() {
     return Math.floor(Math.random() * 4) + 1;
 }
 
-// function check(num) {
-//     $(".btn").click(function (event) {
-
-//         // if (event.target.hasClass("b" + list[num]))
-//         //     continue;
-//         // else
-//         //     restart();
-
-//     })
-// }
 
 $(".start").click(light);
 
 
+function lightItUp(identity) {
+    $("#" + identity).addClass("pressed");
+    setTimeout(() => {
+        $("#" + identity).removeClass("pressed");
+    }, 100);
+}
 
 var list = [];
 
 
 function light() {
-    $(".start").remove();
-    $("h1").html("Enter the pattern");
+    $(".start").hide();
+    $("h1").html("Level " + (list.length + 1));
     light1();
 }
 
 function light1() {
     var number = generator();
-    list.push(number);
+    list.push("b" + number);
+    $("#b" + number).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    for (var i = 0; i < list.length; i++) {
-        $(".b" + list[i]).addClass("pressed");
-        setTimeout(() => {
-            $(".b" + number).removeClass("pressed");
-        }, 1000);
-
-        // check(list[i]);
-    }
-
-    if (list.length < 5)
-        light1();
 }
+
+var userClicked = [];
+
+$(".bt").click(function () {
+    var user = $(this).attr("id");
+    userClicked.push(user);
+    lightItUp(user);         // yo add gare hai but click garda effect nai dekhaudaina
+    // $("#"+user).addClass("pressed");
+
+    // console.log($(this).attr("class"));
+    // check();
+})
+// function check() {
+
+//     if (userClicked === list) {
+
+//     }
+// }
+

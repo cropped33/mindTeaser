@@ -20,19 +20,19 @@ h1 {
     cursor: pointer;
 }
 
-.b1 {
+#b1 {
     background-color: red;
 }
 
-.b2 {
+#b2 {
     background-color: greenyellow;
 }
 
-.b3 {
+#b3 {
     background-color: blue;
 }
 
-.b4 {
+#b4 {
     background-color: cyan;
 }
 
