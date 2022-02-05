@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 h1 {
@@ -47,7 +48,11 @@ h1 {
     cursor: pointer;
 }
 
-.pressed{
+.pressed {
     box-shadow: 0 0 20px white;
-    background-color: grey;
+    background-color: grey !important;
+}
+
+.gameover {
+    background-color: red !important;
 }

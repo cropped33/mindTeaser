@@ -18,32 +18,48 @@ var list = [];
 
 function light() {
     $(".start").hide();
-    $("h1").html("Level " + (list.length + 1));
+
     light1();
 }
 
 function light1() {
+
     var number = generator();
     list.push("b" + number);
+    $("h1").html("Level " + (list.length));
     $("#b" + number).fadeIn(100).fadeOut(100).fadeIn(100);
 
 }
 
 var userClicked = [];
+var count = 0;
 
 $(".bt").click(function () {
     var user = $(this).attr("id");
     userClicked.push(user);
-    lightItUp(user);         // yo add gare hai but click garda effect nai dekhaudaina
-    // $("#"+user).addClass("pressed");
-
-    // console.log($(this).attr("class"));
-    // check();
+    lightItUp(user);
+    check();
 })
-// function check() {
 
-//     if (userClicked === list) {
+function check() {
 
-//     }
-// }
+    if (userClicked[count] === list[count]) {
+        if (userClicked.length == list.length) {
+            light1();
+            count = 0;
+            userClicked=[];
+        }
+    }
+    else {
+        console.log(userClicked);
+        console.log(list);
+        $("h1").html("GAME OVER!!!");
+        setTimeout(() => {
+            $("body").toggleClass("gameover");
+        }, 200);
+        list = [];
+        userClicked = [];
+        $(".start").show();
+    }
+}
 
