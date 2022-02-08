@@ -23,7 +23,9 @@ function light() {
 }
 
 function light1() {
-
+    if ($("body").addClass("gameover")) {
+        $("body").removeClass("gameover");
+    }
     var number = generator();
     list.push("b" + number);
     $("h1").html("Level " + (list.length));
@@ -47,7 +49,7 @@ function check() {
         if (userClicked.length == list.length) {
             light1();
             count = 0;
-            userClicked=[];
+            userClicked = [];
         }
     }
     else {
@@ -55,7 +57,7 @@ function check() {
         console.log(list);
         $("h1").html("GAME OVER!!!");
         setTimeout(() => {
-            $("body").toggleClass("gameover");
+            $("body").addClass("gameover");
         }, 200);
         list = [];
         userClicked = [];
