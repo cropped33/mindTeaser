@@ -1,7 +1,7 @@
 function generator() {
     return Math.floor(Math.random() * 4) + 1;
 }
-
+var start = false;
 
 $(".start").click(light);
 
@@ -18,6 +18,7 @@ var list = [];
 
 function light() {
     $(".start").hide();
+    start = true;
 
     light1();
 }
@@ -26,6 +27,7 @@ function light1() {
     if ($("body").addClass("gameover")) {
         $("body").removeClass("gameover");
     }
+
     var number = generator();
     list.push("b" + number);
     $("h1").html("Level " + (list.length));
@@ -37,10 +39,12 @@ var userClicked = [];
 var count = 0;
 
 $(".bt").click(function () {
-    var user = $(this).attr("id");
-    userClicked.push(user);
-    lightItUp(user);
-    check();
+    if (start === true) {
+        var user = $(this).attr("id");
+        userClicked.push(user);
+        lightItUp(user);
+        check();
+    }
 })
 
 function check() {
