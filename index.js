@@ -1,5 +1,5 @@
 function generator() {
-    return Math.floor(Math.random() * 4) + 1;
+    return Math.floor(Math.random() * 4);
 }
 var start = false;
 
@@ -8,7 +8,7 @@ $(".start").click(light);
 
 function lightItUp(identity) {
     $("#" + identity).addClass("pressed");
-    setTimeout(() => {
+    setTimeout(function(){
         $("#" + identity).removeClass("pressed");
     }, 100);
 }
@@ -50,7 +50,7 @@ $(".bt").click(function () {
 function check() {
 
     if (userClicked[count] === list[count]) {
-        if (userClicked.length == list.length) {
+        if (userClicked.length === list.length) {
             light1();
             count = 0;
             userClicked = [];
@@ -60,7 +60,7 @@ function check() {
         console.log(userClicked);
         console.log(list);
         $("h1").html("GAME OVER!!!");
-        setTimeout(() => {
+        setTimeout(function(){
             $("body").addClass("gameover");
         }, 200);
         list = [];
