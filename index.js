@@ -57,7 +57,7 @@ function check() {
         }
     }
     else {
-        console.log(userClicked);
+        alert("userClicked");
         console.log(list);
         $("h1").html("GAME OVER!!!");
         setTimeout(function(){
